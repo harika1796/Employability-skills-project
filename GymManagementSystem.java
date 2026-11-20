@@ -410,6 +410,7 @@ if (today.isBefore(m.startDate) || today.isAfter(m.endDate)) {
     static void viewAttendance() {
 
         boolean found = false;
+int totalRecords = 0;
 
         System.out.println("\n--- ATTENDANCE RECORDS ---");
 
@@ -418,7 +419,7 @@ if (today.isBefore(m.startDate) || today.isAfter(m.endDate)) {
             if (r instanceof Attendance) {
                 Attendance a = (Attendance) r;
                 found = true;
-
+		totalRecords++;
                 System.out.println(
                     "Member ID: " + a.memberId
                 );
@@ -434,11 +435,11 @@ if (today.isBefore(m.startDate) || today.isAfter(m.endDate)) {
                 System.out.println("--------------------");
             }
         }
-
-        if (!found) {
-            System.out.println("No attendance records!");
-        }
-    }
+if (!found) {
+    System.out.println("No attendance records!");
+} else {
+    System.out.println("Total Attendance Records: " + totalRecords);
+}    }
 
     // 8. Add trainer
     static void addTrainer() {
