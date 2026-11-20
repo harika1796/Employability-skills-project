@@ -444,12 +444,31 @@ if (!found) {
     // 8. Add trainer
     static void addTrainer() {
 
-        System.out.print("Enter trainer name: ");
-        String name = sc.nextLine();
+        String name;
 
-        System.out.print("Enter specialization: ");
-        String specialization = sc.nextLine();
+while (true) {
+    System.out.print("Enter trainer name: ");
+    name = sc.nextLine().trim();
 
+    if (isValidName(name)) {
+        break;
+    }
+
+    System.out.println("Invalid name! Enter letters only.");
+}
+
+String specialization;
+
+while (true) {
+    System.out.print("Enter specialization: ");
+    specialization = sc.nextLine().trim();
+
+    if (isValidName(specialization)) {
+        break;
+    }
+
+    System.out.println("Invalid specialization! Enter letters only.");
+}
         Trainer t = new Trainer(
             nextTrainerId++, name, specialization
         );
