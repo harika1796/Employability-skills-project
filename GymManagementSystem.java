@@ -226,9 +226,10 @@ while (true) {
         System.out.print("Enter age: ");
         int age = readNumber();
 
-        if (age < 16) {
-            throw new InvalidAgeException();
-        }
+        if (age < 16 || age > 100) {
+    System.out.println("Invalid age! Age must be between 16 and 100.");
+    return;
+}
 
         String phone;
 
