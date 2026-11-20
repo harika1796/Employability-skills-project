@@ -85,9 +85,17 @@ public class GymManagementSystem {
     static int nextTrainerId = 1;
 
     // Read integer input
-    static int readNumber() {
-        return Integer.parseInt(sc.nextLine());
+   // Read valid integer input
+static int readNumber() {
+
+    while (true) {
+        try {
+            return Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.print("Invalid input! Please enter a number: ");
+        }
     }
+}
 
     // Search for member
     static Member searchMember(int id)
