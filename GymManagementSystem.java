@@ -123,15 +123,16 @@ public class GymManagementSystem {
         throw new TrainerNotFoundException();
     }
 
-    // Display membership plans
-    static void viewPlans() {
+// Display membership plans with duration
+static void viewPlans() {
 
-        System.out.println("\n--- MEMBERSHIP PLANS ---");
-        System.out.println("1. Monthly     - Rs.1000");
-        System.out.println("2. Quarterly   - Rs.2500");
-        System.out.println("3. Half Yearly - Rs.4500");
-        System.out.println("4. Yearly      - Rs.8000");
-    }
+    System.out.println("\n--- MEMBERSHIP PLANS ---");
+
+    System.out.println("1. Monthly     - Rs.1000 - 30 Days");
+    System.out.println("2. Quarterly   - Rs.2500 - 90 Days");
+    System.out.println("3. Half Yearly - Rs.4500 - 180 Days");
+    System.out.println("4. Yearly      - Rs.8000 - 365 Days");
+}
 
     // Get plan details
     static void setPlan(Member m, int choice) {
