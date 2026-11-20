@@ -515,6 +515,10 @@ while (true) {
         int trainerId = readNumber();
 
         Trainer t = searchTrainer(trainerId);
+	if (m.trainer.equals(t.name)) {
+    System.out.println("This trainer is already assigned to this member!");
+    return;
+}
 
         m.trainer = t.name;
 
