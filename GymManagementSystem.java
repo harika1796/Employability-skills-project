@@ -635,16 +635,13 @@ while (true) {
                         System.out.println("Invalid choice!");
                 }
 
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number!");
-
             } catch (MemberNotFoundException |
-                     TrainerNotFoundException |
-                     DuplicateMemberException |
-                     InvalidAgeException e) {
+         TrainerNotFoundException |
+         DuplicateMemberException |
+         InvalidAgeException e) {
 
-                System.out.println("Error: " + e.getMessage());
-            }
+    System.out.println("Error: " + e.getMessage());
+}
         }
     }
 }
