@@ -171,6 +171,25 @@ public class GymManagementSystem {
             default: return 0;
         }
     }
+// Validate phone number
+static boolean isValidPhone(String phone) {
+
+    if (phone.length() != 10) {
+        return false;
+    }
+
+    if (phone.charAt(0) < '6' || phone.charAt(0) > '9') {
+        return false;
+    }
+
+    for (int i = 0; i < phone.length(); i++) {
+        if (!Character.isDigit(phone.charAt(i))) {
+            return false;
+        }
+    }
+
+    return true;
+}
 // Validate member name
 static boolean isValidName(String name) {
 
@@ -211,8 +230,18 @@ while (true) {
             throw new InvalidAgeException();
         }
 
-        System.out.print("Enter phone number: ");
-        String phone = sc.nextLine();
+        String phone;
+
+while (true) {
+    System.out.print("Enter phone number: ");
+    phone = sc.nextLine().trim();
+
+    if (isValidPhone(phone)) {
+        break;
+    }
+
+    System.out.println("Invalid phone number! Enter a valid 10-digit number.");
+}
 
         for (GymRecord r : records) {
             if (r instanceof Member) {
