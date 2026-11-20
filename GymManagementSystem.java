@@ -171,14 +171,38 @@ public class GymManagementSystem {
             default: return 0;
         }
     }
+// Validate member name
+static boolean isValidName(String name) {
 
+    if (name.isEmpty()) {
+        return false;
+    }
+
+    for (char ch : name.toCharArray()) {
+        if (!Character.isLetter(ch) && ch != ' ') {
+            return false;
+        }
+    }
+
+    return true;
+}
     // 1. Register member
     static void registerMember()
             throws DuplicateMemberException,
                    InvalidAgeException {
 
-        System.out.print("Enter member name: ");
-        String name = sc.nextLine();
+        String name;
+
+while (true) {
+    System.out.print("Enter member name: ");
+    name = sc.nextLine().trim();
+
+    if (isValidName(name)) {
+        break;
+    }
+
+    System.out.println("Invalid name! Enter letters only.");
+}
 
         System.out.print("Enter age: ");
         int age = readNumber();
