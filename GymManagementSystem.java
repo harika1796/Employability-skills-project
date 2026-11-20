@@ -374,14 +374,18 @@ while (true) {
 
         Member m = searchMember(id);
 
-LocalDate today = LocalDate.now();
 
-if (m.endDate == null || m.endDate.isBefore(today)) {
-    System.out.println("Membership expired or not selected!");
-    System.out.println("Please renew your membership.");
+if (m.startDate == null || m.endDate == null) {
+    System.out.println("Please select a membership plan first!");
     return;
 }
 
+LocalDate today = LocalDate.now();
+
+if (today.isBefore(m.startDate) || today.isAfter(m.endDate)) {
+    System.out.println("Membership is not currently active!");
+    return;
+}
         for (GymRecord r : records) {
 
             if (r instanceof Attendance) {
